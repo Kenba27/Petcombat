@@ -1,0 +1,19 @@
+name: PetModes
+version: 1.0.0
+main: PetModes
+api-version: '1.21'
+description: Che do Canh gac va Hung han cho pet cua CombatPets
+softdepend: [CombatPets]
+commands:
+  petmodes:
+    description: Doi che do cua pet
+    usage: /<command> <guard|aggressive|off>
+    aliases: [pmode, petmode]
+    permission: petmodes.use
+permissions:
+  petmodes.use:
+    description: Dung lenh /petmodes
+    default: true
+  petmodes.admin:
+    description: Dung debug va reload
+    default: op

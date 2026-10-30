@@ -1,0 +1,49 @@
+# Namespace PDC ma CombatPets gan len pet (thuong la ten plugin viet thuong).
+# Neu /petmodes debug cho thay key co namespace khac thi doi o day.
+pet-namespace: combatpets
+
+guard:
+  radius: 10.0          # quai gay hai lai gan trong ban kinh nay se bi pet tan cong
+  priority-seconds: 10  # khi chu bi danh, pet uu tien ke do trong bay nhieu giay
+
+aggressive:
+  radius: 50.0          # pet san moi mob trong ban kinh nay
+  include-passive: true # true = san ca mob hien (bo, cuu, ga...); false = chi quai gay hai
+                        # mob bi dat ten (name tag) luon duoc tha
+
+attack:
+  # Pet khong phai Monster (bo, cuu, ngua...) khong tu danh duoc -> plugin gay sat thuong thay
+  manual-damage-for-non-monsters: true
+  fallback-damage: 4.0   # dung khi pet khong co attribute sat thuong
+  cooldown-ticks: 20
+  reach: 1.5
+  move-speed: 1.3
+  # Cac loai tu co don danh san, khong gay sat thuong them de tranh danh 2 lan
+  skip-manual-damage: [WOLF, BEE, FOX, POLAR_BEAR, IRON_GOLEM, HOGLIN, LLAMA, TRADER_LLAMA, SNOW_GOLEM, GHAST, PHANTOM, SLIME, MAGMA_CUBE]
+
+# Mob KHONG bao gio bi pet danh (tru khi chinh no danh chu)
+blacklist: [VILLAGER, WANDERING_TRADER, IRON_GOLEM]
+
+messages:
+  only-player: "&cChỉ người chơi mới dùng được lệnh này."
+  no-permission: "&cBạn không có quyền."
+  guard-on: "&aChế độ &eCanh gác&a: pet tấn công quái trong &e{radius}&a block quanh bạn và ưu tiên kẻ đánh bạn."
+  aggressive-on: "&aChế độ &cHung hãn&a: pet săn mob trong &c{radius}&a block quanh bạn."
+  off: "&7Đã tắt chế độ PetModes. Pet trở lại hành vi của CombatPets."
+  bind-ok: "&aĐã gán &e{type}&a là pet của bạn."
+  bind-fail: "&cHãy nhìn thẳng vào pet (trong 10 block) rồi gõ lại lệnh."
+  unbind: "&7Đã bỏ gán tay tất cả pet."
+  reloaded: "&aĐã tải lại config."
+  mode-off: "Tắt"
+  mode-guard: "Canh gác"
+  mode-aggressive: "Hung hãn"
+  help:
+    - "&e/petmodes guard &7- Canh gác ({guard} block)"
+    - "&e/petmodes aggressive &7- Hung hãn ({aggressive} block)"
+    - "&e/petmodes off &7- Tắt"
+    - "&e/petmodes bind &7- Gán tay pet đang nhìn (nếu không tự nhận ra)"
+    - "&7Chế độ hiện tại: &f{mode}"
+  debug-look: "&cHãy nhìn vào pet (trong 10 block)."
+  debug-info: "&e[Debug] {type} | chủ: {owner} | có dấu hiệu pet: {marked}"
+  debug-key: "&7 - {key} = {value}"
+  debug-none: "&7 (entity không có PDC key nào)"
